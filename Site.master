@@ -72,11 +72,21 @@
     
     <!-- Left navigation -->
     <ul id="menu" class="nav">
-        <li class="dash"><a id="home" runat="server" href="Default.aspx" title="" class="active"><span>Home</span></a></li>
-        <li class="tasks"><a id="tasks" runat="server" href="Tasks.aspx" title=""><span>Tasks</span></a></li>
-        <li class="ui"><a id="contacts" runat="server" href="Contacts.aspx" title=""><span>Contacts</span></a></li>
-        <li class="widgets"><a id="reminders" runat="server" href="Reminders.aspx" title="" class="exp"><span>Reminders</span></a></li>
-        <li class="files"><a id="templates" runat="server" href="Templates.aspx" title="" class="exp"><span>Templates</span></a></li>
+        <li class="dash"><a id="home" runat="server" href="Default.aspx" title="" class="active"><span>Home</span></a>
+        </li>
+        <li class="tasks"><a id="tasks" runat="server" href="Tasks.aspx" title="">
+            <span>Tasks</span><strong>&darr;</strong></a>
+            <ul class="sub">
+                <li><a href="Tasks.aspx" title="">View Tasks</a></li>
+                <li class="last"><a href="Task.aspx?mode=add" title="">Add a Task</a></li>
+            </ul>
+        </li>
+        <li class="ui"><a id="contacts" runat="server" href="Contacts.aspx" title="">
+            <span>Contacts</span><strong>&darr;</strong></a>
+            <ul class="sub">
+                <li><a href="Contacts.aspx" title="">View Contacts</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 
@@ -90,7 +100,9 @@
             <asp:Label ID="lblName" runat="server" /></span></div>
             <div class="user-navigation">
                 <ul>
-                    <li><a href="MyProfile.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/user_header.png" alt="" /><span>Profile</span></a></li>
+                    <li><a href="MyProfile.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/user_header.png" alt="" />
+                    <span>Profile</span></a>
+                    </li>
                     <li><a href="Settings.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/icons/topnav/settings.png" alt="" /><span>Settings</span></a></li>
                     <li><a href="Logout.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/icons/topnav/logout.png" alt="" /><span>Logout</span></a></li>
                 </ul>
