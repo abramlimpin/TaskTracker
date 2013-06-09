@@ -497,15 +497,15 @@ $(function() {
 	$( ".datepicker" ).datepicker({ 
 		defaultDate: +7,
 		autoSize: true,
-		appendText: '(dd-mm-yyyy)',
-		dateFormat: 'dd-mm-yy',
+		appendText: '',
+		dateFormat: 'mm/dd/yy',
 	});	
 	
 	$( ".datepickerInline" ).datepicker({ 
 		defaultDate: +7,
 		autoSize: true,
-		appendText: '(dd-mm-yyyy)',
-		dateFormat: 'dd-mm-yy',
+		appendText: '',
+		dateFormat: 'mm/dd/yy',
 		numberOfMonths: 1
 	});	
 
