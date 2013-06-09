@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <title>TaskTracker</title>
 <link href="http://localhost:12345/TaskTracker/css/main.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost:12345/TaskTracker/images/favicon.png" rel="shortcut icon" />
 <!-- Load Template Main Required Scripts -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/jquery-1.7.1.min.js"></script>
@@ -31,8 +32,6 @@
 	
 	<!-- Scripts Handlers -->
 	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/custom.js"></script>
-	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/charts/chart.js"></script>
-
 
 </head>
 
