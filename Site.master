@@ -1,0 +1,159 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>TaskTracker</title>
+	<link href="http://localhost:12345/TaskTracker/css/main.css" rel="stylesheet" type="text/css" />
+
+	<!-- Load Template Main Required Scripts -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/spinner/ui.spinner.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/spinner/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
+	<!-- Load Charts Elements Scripts -->
+	
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/charts/excanvas.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/charts/jquery.sparkline.min.js"></script>
+	
+	<!-- Load Forms Scripts -->
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/uniform.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/wizard/jquery.form.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/wizard/jquery.form.wizard.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/wizard/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.inputlimiter.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/chosen.jquery.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.validationEngine-en.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.cleditor.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.tagsinput.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.validationEngine.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/jquery.dualListBox.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/forms/autogrowtextarea.js"></script>
+	
+	<!-- Load Upload Scripts -->
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/uploader/plupload.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/uploader/plupload.html5.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/uploader/plupload.html4.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/uploader/jquery.plupload.queue.js"></script>
+	
+	<!-- Load Table Scripts -->
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/tables/datatable.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/tables/tablesort.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/tables/resizable.min.js"></script>
+	
+	<!-- Load Misc Scripts --> 
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.sourcerer.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.breadcrumbs.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.progress.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.colorpicker.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.collapsible.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.timeentry.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/ui/jquery.jgrowl.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/calendar.min.js"></script>
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/plugins/elfinder.min.js"></script>
+	
+	<!-- Scripts Handlers -->
+	<script type="text/javascript" src="http://localhost:12345/TaskTracker/js/custom.js"></script>
+	
+</head>
+
+<body>
+<!-- Side Navigation -->
+<div id="side-navigation">
+    <div class="logo"><a href="http://localhost:12345/TaskTracker/Default.aspx">
+        <img src="http://localhost:12345/TaskTracker/images/logo.png" alt="" /></a></div>
+    
+    <!-- Left navigation -->
+    <ul id="menu" class="nav">
+        <li class="dash"><a id="home" runat="server" href="Default.aspx" title="" class="active"><span>Home</span></a></li>
+        <li class="tasks"><a id="tasks" runat="server" href="Tasks.aspx" title=""><span>Tasks</span></a></li>
+        <li class="ui"><a id="contacts" runat="server" href="Contacts.aspx" title=""><span>Contacts</span></a></li>
+        <li class="widgets"><a id="reminders" runat="server" href="Reminders.aspx" title="" class="exp"><span>Reminders</span></a></li>
+        <li class="files"><a id="templates" runat="server" href="Templates.aspx" title="" class="exp"><span>Templates</span></a></li>
+    </ul>
+</div>
+
+<!-- Content Wrapper -->
+<div id="content-wrapper">
+
+    <!-- Top Bar Navigation -->
+    <div class="top-navigation">
+        <div class="wrapper">
+            <div class="welcome"><a href="http://localhost:12345/TaskTracker/Default.aspx" title="Home"><img src="http://localhost:12345/TaskTracker/images/user_header.png" alt="" /></a><span>
+            <asp:Label ID="lblName" runat="server" /></span></div>
+            <div class="user-navigation">
+                <ul>
+                    <li><a href="MyProfile.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/user_header.png" alt="" /><span>Profile</span></a></li>
+                    <li><a href="Settings.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/icons/topnav/settings.png" alt="" /><span>Settings</span></a></li>
+                    <li><a href="Logout.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/icons/topnav/logout.png" alt="" /><span>Logout</span></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <!-- Responsive header -->
+    <div class="resp">
+        <div class="responsive-header">
+            <a href="Default.aspx" title=""><img src="http://localhost:12345/TaskTracker/images/logo_dark.png" alt="" /></a>
+        </div>
+        
+        
+        <div class="responsive-menu">
+            <span class="active-menu-item"><img src="http://localhost:12345/TaskTracker/images/icons/light/home.png" alt="" />Home</span>
+            <ul class="resp-menu">
+                
+            </ul>
+        </div>
+        
+    </div>
+    
+    <!-- Title area -->
+    <div class="intro-area">
+        <div class="wrapper">
+            <div class="page-title">
+                <h5><asp:ContentPlaceHolder ID="title" runat="server" /></h5>
+            </div>
+            <div class="inner-navigation">
+                <ul>
+                    <li class="middle-user"><a title="Contacts" class="tipN"><span class="users"></span></a>
+                        <ul class="middle-Submenu-1">
+                            <li><a href="Contacts.aspx" title="">View Contacts</a></li>
+                            <li><a href="Contacts.aspx?mode=add" title="">Add a Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="middle-Data"><a href="#" title="Upcoming Tasks" class="tipN"><span class="data"></span></a>
+                        <asp:Panel ID="pnlNoTasks" runat="server" Visible="false">
+                            <span class="number-Middle"><asp:Label ID="lblNoTasks" runat="server" /></span>
+                        </asp:Panel>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <asp:ContentPlaceHolder ID="dashboard" runat="server" />
+    
+    <!-- Main content wrapper -->
+    <div class="wrapper">
+        <asp:ContentPlaceHolder ID="content" runat="server" />
+    </div>
+    
+    <!-- Footer line -->
+    <div id="footer">
+        <div class="wrapper"> &copy; 2013 <a href="http://www.idea92.com" title="">Idea92</a>. All Rights Reserved.</div>
+    </div>
+</div>
+
+<div class="clear"></div>
+</body>
+</html>
