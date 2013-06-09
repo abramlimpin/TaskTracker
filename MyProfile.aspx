@@ -6,6 +6,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="dashboard" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="content" Runat="Server">
+    <asp:Panel ID="pnlUpdate" runat="server" Visible="false">
+        <div class="note-box note-success hide-me">
+            <p>Profile updated.</p>
+        </div>
+    </asp:Panel>
     <form id="Form1" runat="server" class="form">
         <fieldset>
             <div class="widget">
