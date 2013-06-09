@@ -37,7 +37,7 @@ public partial class TaskInfo : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
         cmd.CommandText = "SELECT tblTask.TaskName, tblCategory.CategoryName, tblTask.StartDateTime, " +
-            "tblTask.EndDateTime, tblUser.FirsName + ' ' + tblUser.LastName AS AssigneeName, " +
+            "tblTask.EndDateTime, tblUser.FirstName + ' ' + tblUser.LastName AS AssigneeName, " +
             "tblTask.SMS, tblTask.Email FROM tblTask " +
             "INNER JOIN tblCategory ON tblTask.CategoryID = tblCategory.CategoryID " +
             "INNER JOIN tblUser ON tblTask.Assignee = tblUser.UserID " +

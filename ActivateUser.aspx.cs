@@ -30,8 +30,8 @@ public partial class ActivateUser : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
         cmd.CommandText = "SELECT UserID FROM tblUser WHERE UserID = @UserID AND Password=@Password";
-        cmd.Parameters.Add("@EmailAddress", SqlDbType.NVarChar).Value = email;
-        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = password;
+        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = email;
+        cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
         SqlDataReader data = cmd.ExecuteReader();
         if (data.HasRows)
             isExisting = true;
