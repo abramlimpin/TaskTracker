@@ -22,7 +22,7 @@
                 <asp:ListView ID="lvTasks" runat="server">
                     <ItemTemplate>
                         <tr>
-                            <td class="<%# Eval("TaskColor") %>"><a href="Task.aspx?ID=<%# Eval("TaskID") %>" title=""><%# Eval("TaskName") %></a></td>
+                            <td class="<%# Eval("TaskColor") %>"><a href="TaskInfo.aspx?ID=<%# Eval("TaskID") %>" title=""><%# Eval("TaskName") %></a></td>
                             <td><%# Eval("CategoryName") %></td>
                             <td><span class="<%# Eval("color") %> font-size11"><%# Eval("Status") %></span></td>
                             <td class="action-buttons">
