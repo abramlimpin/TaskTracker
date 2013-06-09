@@ -17,6 +17,13 @@ public partial class Contacts : System.Web.UI.Page
         if (Session["userid"] != null)
         {
             Session["page"] = "Contacts";
+            if (Session["contact_edit"] != null)
+            {
+                pnlEdit.Visible = true;
+                Session.Remove("contact_edit");
+            }
+            else
+                pnlEdit.Visible = false;
             if (!IsPostBack)
             {
                 GetContacts();

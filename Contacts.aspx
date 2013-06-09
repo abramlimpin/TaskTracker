@@ -8,6 +8,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="content" Runat="Server">
     <div class="widgets">
         <div class="one-half">
+            <asp:Panel ID="pnlEdit" runat="server" Visible="false">
+                <div class="note-box note-success hide-me">
+                    <p>Contact information updated.</p>
+                </div>
+            </asp:Panel>
             <div class="widget">
                 <div class="title"><img src="http://localhost:12345/TaskTracker/images/icons/light/user-2.png" alt="" class="title-icon" />
                 <h6>Contact List</h6>
