@@ -79,8 +79,8 @@
                 </div>
                 
                 <div class="login-controllers">
-                    <div class="remember-check">
-                        <asp:CheckBox ID="cbRemember" runat="server" /><label for="rem-checkbox">Remember me</label></div>
+                    <asp:Button ID="btnSignUp" runat="server" Text="Sign Up"
+                        PostBackUrl="~/Signup.aspx" />
                     <asp:Button ID="btnLogin" runat="server" class="login-class " Text="Login"
                         OnClick="btnLogin_Click" />
                     <div class="clear"></div>
