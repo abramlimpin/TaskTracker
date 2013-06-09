@@ -11,8 +11,18 @@ public partial class Site : System.Web.UI.MasterPage
     {
         if (Session["userid"] != null)
         {
-            lblName.Text = "Welcome, " + 
-                Helper.GetFirstName(Session["userid"].ToString()) + "!";
+            string userType = Helper.GetUserType(Session["userid"].ToString());
+
+            if (userType == "Basic")
+            {
+                lblName.Text = "Welcome, " +
+                    Helper.GetFirstName(Session["userid"].ToString()) + "!";
+            }
+            else
+            {
+                lblName.Text = "Welcome, " +
+                    Helper.GetFirstName(Session["userid"].ToString()) + "! <b>[ Premium ]</b>";
+            }
         }
         else
         {
@@ -29,40 +39,18 @@ public partial class Site : System.Web.UI.MasterPage
             home.Attributes.Add("class", "active");
             tasks.Attributes.Add("class", "exp");
             contacts.Attributes.Add("class", "exp");
-            reminders.Attributes.Add("class", "exp");
-            templates.Attributes.Add("class", "exp");
         }
         else if (Session["page"].ToString() == "Task")
         {
             home.Attributes.Add("class", "exp");
             tasks.Attributes.Add("class", "active");
             contacts.Attributes.Add("class", "exp");
-            reminders.Attributes.Add("class", "exp");
-            templates.Attributes.Add("class", "exp");
         }
         else if (Session["page"].ToString() == "Contacts")
         {
             home.Attributes.Add("class", "exp");
             tasks.Attributes.Add("class", "exp");
             contacts.Attributes.Add("class", "active");
-            reminders.Attributes.Add("class", "exp");
-            templates.Attributes.Add("class", "exp");
-        }
-        else if (Session["page"].ToString() == "Reminders")
-        {
-            home.Attributes.Add("class", "exp");
-            tasks.Attributes.Add("class", "exp");
-            contacts.Attributes.Add("class", "exp");
-            reminders.Attributes.Add("class", "active");
-            templates.Attributes.Add("class", "exp");
-        }
-        else
-        {
-            home.Attributes.Add("class", "exp");
-            tasks.Attributes.Add("class", "exp");
-            contacts.Attributes.Add("class", "exp");
-            reminders.Attributes.Add("class", "exp");
-            templates.Attributes.Add("class", "active");
         }
     }
 }
