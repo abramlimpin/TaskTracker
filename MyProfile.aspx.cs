@@ -16,7 +16,10 @@ public partial class MyProfile : System.Web.UI.Page
     {
         if (Session["userid"] != null)
         {
-            GetProfile();
+            if (!IsPostBack)
+            {
+                GetProfile();
+            }
         }
     }
 
@@ -43,11 +46,29 @@ public partial class MyProfile : System.Web.UI.Page
     {
         con.Open();
         SqlCommand cmd = new SqlCommand();
-        cmd.CommandText = "UPDATE tblUser SET UserID = @UserID, FirstName = @FirstName, " +
-            "LastName = @LastName, Mobile = @Mobile, Password = @Password";
-        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = txtEmail.Text;
+        cmd.Connection = con;
+        if (txtPassword.Text != "")
+        {
+            cmd.CommandText = "UPDATE tblUser SET UserID = @Email, FirstName = @FirstName, " +
+                "LastName = @LastName, Mobile = @Mobile, Password = @Password WHERE " +
+                "UserID = @UserID";
+            cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value =
+                Helper.CreateSHAHash(txtPassword.Text);
+        }
+        else
+        {
+            cmd.CommandText = "UPDATE tblUser SET UserID = @Email, FirstName = @FirstName, " +
+                "LastName = @LastName, Mobile = @Mobile WHERE UserID = @UserID";
+        }
+
+        cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text;
         cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = txtFN.Text;
         cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = txtLN.Text;
-        cmd.Parameters.Add("@Mobile", SqlDbType.NVarChar).Value = txt
+        cmd.Parameters.Add("@Mobile", SqlDbType.NVarChar).Value = txtMobile.Text;
+        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = Session["userid"].ToString();
+        cmd.ExecuteNonQuery();
+        con.Close();
+        pnlUpdate.Visible = true;
+        GetProfile();
     }
 }
