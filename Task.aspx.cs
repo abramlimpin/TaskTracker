@@ -46,12 +46,45 @@ public partial class Task : System.Web.UI.Page
                 }
                 else
                     lblTitle.Text = "Task";
+
+                if (!IsPostBack)
+                {
+                    GetContacts();
+                }
+                if (Helper.GetUserType(Session["userid"].ToString()) != "Premium")
+                {
+                    pnlTemplate.Visible = false;
+                    pnlBasic.Visible = true;
+                }
+                else
+                {
+                    pnlTemplate.Visible = true;
+                    pnlBasic.Visible = false;
+                }
             }
             else
                 Response.Redirect("Task.aspx?mode=add");
         }
         else
             Response.Redirect("Login.aspx");    
+    }
+
+    void GetContacts()
+    {
+        con.Open();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandText = "SELECT tblContact.ContactID, tblContact.FirstName + ' ' + tblContact.LastName " +
+            "AS FullName, tblGroup.GroupName " +
+            "FROM tblContact INNER JOIN tblGroup ON tblContact.GroupID = tblGroup.GroupID WHERE " +
+            "tblGroup.UserID = @UserID";
+        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = Session["userid"].ToString();
+        SqlDataReader data = cmd.ExecuteReader();
+        ddlContacts.DataSource = data;
+        ddlContacts.DataTextField = "FullName";
+        ddlContacts.DataValueField = "ContactID";
+        ddlContacts.DataBind();
+        con.Close();
     }
 
     void GetTaskInfo(int taskID)
@@ -132,6 +165,17 @@ public partial class Task : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         con.Close();
         Session["task"] = "yes";
+
+        DateTime start = DateTime.Parse(txtStartDate.Text + ' ' + txtStartTime.Text);
+        DateTime end = DateTime.Parse(txtEndDate.Text + ' ' + txtEndTime.Text);
+        string message = "Hello, " + Helper.GetFirstName(Session["userid"].ToString()) + "! <br /><br /> " +
+            "You have created a new task: <br /><br />" +
+            "Task: " + txtName.Text + "<br/>" +
+            "Category: " + txtCategory.Text + "<br />" +
+            "Start Date/Time: " + start.ToString("MMMM dd, yyyy hh:dd tt") + "<br />" +
+            "End Date/Time: " + end.ToString("MMMM dd, yyyy hh:dd tt") + "<br />";
+
+        Helper.SendEmail(Session["userid"].ToString(), "Task Created!", message);
         Response.Redirect("Tasks.aspx");
     }
 
@@ -156,5 +200,18 @@ public partial class Task : System.Web.UI.Page
         cmd.Parameters.Add("@Assignee", SqlDbType.Int).Value = "123";
         cmd.Parameters.Add("@ParentID", SqlDbType.Int).Value = "1";
         cmd.Parameters.Add("@SequenceID", SqlDbType.Int).Value = "1";
+    }
+    protected void ddlTemplate_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlTemplate.SelectedIndex == 0)
+        {
+            pnlTemplate.Visible = true;
+            pnlBasic.Visible = false;
+        }
+        else if (ddlTemplate.SelectedIndex == 2)
+        {
+            pnlTemplate.Visible = false;
+            pnlBasic.Visible = true;
+        }
     }
 }
