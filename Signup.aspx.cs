@@ -47,13 +47,14 @@ public partial class Signup : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "INSERT INTO tblUser VALUES (@UserID, @Password, @FirstName, @LastName, " +
-                "@Mobile, @Status)";
+                "@Mobile, @Status, @UserType)";
             cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = txtEmail.Text;
             cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = Helper.CreateSHAHash(txtPassword.Text);
             cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = txtFN.Text;
             cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = txtLN.Text;
             cmd.Parameters.Add("@Mobile", SqlDbType.NVarChar).Value = txtMobile.Text;
             cmd.Parameters.Add("@Status", SqlDbType.NVarChar).Value = "Pending";
+            cmd.Parameters.Add("@UserType", SqlDbType.NVarChar).Value = "Basic";
             cmd.ExecuteNonQuery();
             con.Close();
             Helper.AddLog(txtEmail.Text, "Register", "Registered Successful");
