@@ -88,6 +88,24 @@ public class Helper
         return firstName;
     }
 
+    public static string GetUserType(string userID)
+    {
+        string userType = "";
+        SqlConnection con = new SqlConnection(Helper.GetConnectionString());
+        con.Open();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandText = "SELECT UserType FROM tblUser WHERE UserID = @UserID";
+        cmd.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = userID;
+        SqlDataReader data = cmd.ExecuteReader();
+        while (data.Read())
+        {
+            userType = data["UserType"].ToString();
+        }
+        con.Close();
+        return userType;
+    }
+
     public static void SendEmail(string email, string subject, string message)
     {
         MailMessage msg = new MailMessage();
